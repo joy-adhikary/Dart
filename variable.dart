@@ -50,9 +50,17 @@ void list() {
   print('Another Mixed List: $anotherMixedList');
 }
 
+void list4() {
+  var list = [1, 2, 3, 4, 5];
+  var list2 = [6, 7, 8, 9, 10];
+  var combinedList = [...list, ...list2];
+  print('Combined List: $combinedList');
+}
+
 void main() {
   // test1();
   // test2();
   // test3();
   // list();
+  list4();
 }
