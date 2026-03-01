@@ -57,10 +57,37 @@ void list4() {
   print('Combined List: $combinedList');
 }
 
+// map
+void maps() {
+  Map<String, int> ages = {};
+  ages = {'Alice': 30, 'Bob': 25, 'Charlie': 35};
+  print('Ages: $ages');
+
+  var map = {};
+  map = {'name': 'joy', 'age': 30, 'isStudent': true};
+  print('Map: $map');
+
+  // jodi index exist kore tahole update korbe, na hole add korbe
+  map['name'] = 'doe'; // update
+  map['city'] = 'New York'; // add
+  print('Updated Map: $map');
+
+  // check if a key or value exists in the map
+  if (map.containsKey('name')) {
+    if (map.containsValue('doe')) {
+      print('Value "doe" and Key "name" exists in the map.');
+    } else
+      print('Only Key "name" exists in the map.');
+  } else {
+    print('Neither key "name" nor value "doe" exists in the map.');
+  }
+}
+
 void main() {
   // test1();
   // test2();
   // test3();
   // list();
-  list4();
+  // list4();
+  maps();
 }
