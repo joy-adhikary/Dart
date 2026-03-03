@@ -3,6 +3,15 @@
 // class basically akta blueprint or model. Class er moddhe jah jah thakbe object er moddhe o same thakbe.
 // A class is a blueprint for creating objects. A class defines the properties and methods that an object will have. For example, a class called Dog might have properties like breed, color and methods like bark, run.
 
+// constructor  syntax
+// class ClassName {
+//   // Constructor declaration: Same as class name
+//   ClassName() {
+//     // constructor body
+//   }
+// }
+
+//  multiple constructor using named constructor
 class Student {
   String? name;
   int? age;
@@ -49,6 +58,51 @@ class StudentWithConstructor {
   }
 }
 
+class StudentWithOptionalConstructor {
+  String? name;
+  int? age;
+  String? depart;
+
+  void showInfo() {
+    print('Name: $name, Age: $age, Department: $depart');
+  }
+
+  StudentWithOptionalConstructor(
+    String? name,
+    String? depart, [
+    int? age = 18,
+  ]) {
+    this.name = name;
+    this.age = age;
+    this.depart = depart;
+  }
+}
+
+class StudentWithNamedConstructor {
+  String? name;
+  int? age;
+  String? depart;
+
+  void showInfo() {
+    print('Name: $name, Age: $age, Department: $depart');
+  }
+
+  StudentWithNamedConstructor(String? name, int? age, String? depart) {
+    this.name = name;
+    this.age = age;
+    this.depart = depart;
+  }
+
+  StudentWithNamedConstructor.withoutAge(String? name, String? depart) {
+    this.name = name;
+    this.depart = depart;
+  }
+
+  StudentWithNamedConstructor.withoutName(String? depart) {
+    this.depart = depart;
+  }
+}
+
 void manualAssign() {
   Student student1 = Student();
   student1.name = 'Alice';
@@ -68,11 +122,41 @@ void constructorExample() {
   student3.showInfo();
 }
 
-void main() {
-  manualAssign();
+void optionalConstructorExample() {
+  StudentWithOptionalConstructor student4 = StudentWithOptionalConstructor(
+    'Nuri',
+    'CSE',
+  );
+  student4.showInfo();
+}
 
+void namedConstructorExample() {
+  StudentWithNamedConstructor student5 = StudentWithNamedConstructor.withoutAge(
+    'Nuri',
+    'CSE',
+  );
+
+  StudentWithNamedConstructor student6 =
+      StudentWithNamedConstructor.withoutName('Joy');
+
+  StudentWithNamedConstructor student7 = StudentWithNamedConstructor(
+    'Joy',
+    25,
+    'CSE',
+  );
+  student5.showInfo();
+  student6.showInfo();
+  student7.showInfo();
+}
+
+void main() {
+  // manualAssign();
   // manually assing er prob hocche bar bar amake define kora lagbe. For example name , age, depet.
   // But setter or constructor use korle amake bar bar define kora lagbe na. Just ekbar setter or constructor define kore dilei hobe.
-  seetterExample(); //useing setter
-  constructorExample(); //useing constructor
+  // seetterExample(); //useing setter
+  // constructorExample(); //useing constructor
+  // optionalConstructorExample(); //useing optional constructor
+
+  //  Named constructor -> c++ a basially amra constructor overloading use kortam. Dart a constructor overloading nai but amra named constructor use korte pari. Named constructor er maddhome amra multiple constructor create korte pari.
+  namedConstructorExample();
 }
