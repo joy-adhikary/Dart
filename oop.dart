@@ -113,8 +113,14 @@ void manualAssign() {
 
 void seetterExample() {
   Student student2 = Student();
+  Student student3 = Student();
   student2.setter('Bob', 22, 'Mathematics');
   student2.getter();
+
+  student3.name = 'Alice';
+  student3.age = 20;
+  student3.depart = 'Computer Science';
+  student3.showInfo();
 }
 
 void constructorExample() {
@@ -153,10 +159,14 @@ void main() {
   // manualAssign();
   // manually assing er prob hocche bar bar amake define kora lagbe. For example name , age, depet.
   // But setter or constructor use korle amake bar bar define kora lagbe na. Just ekbar setter or constructor define kore dilei hobe.
-  // seetterExample(); //useing setter
   // constructorExample(); //useing constructor
   // optionalConstructorExample(); //useing optional constructor
 
   //  Named constructor -> c++ a basially amra constructor overloading use kortam. Dart a constructor overloading nai but amra named constructor use korte pari. Named constructor er maddhome amra multiple constructor create korte pari.
-  namedConstructorExample();
+  // namedConstructorExample();
+
+  // setter & getter -> setter er maddhome amra class er property gulo ke set korte pari. Getter er maddhome amra class er property gulo ke access korte pari.
+  // For example, amra student class er name, age, depart property gulo ke setter er maddhome set korte pari and getter er maddhome access korte pari.
+
+  seetterExample();
 }
