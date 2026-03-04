@@ -72,7 +72,7 @@ void simpleInheritance() {
   h.displayBike();
 }
 
-// example of multilevel inheritance
+//                                          example of multilevel inheritance
 
 class Person {
   String? name;
@@ -131,10 +131,63 @@ void multilevelInheritance() {
   joy.displayPerson();
 }
 
+//                                           example of constructor inheritance
+
+class Student {
+  String? name;
+  int? age;
+
+  Student(String name) {
+    this.name = name;
+    print('this is the constructor of the Student class');
+  }
+
+  // named constructor
+  Student.withAge(int age) {
+    this.age = age;
+    print('this is the constructor of the Student class');
+  }
+
+  void displayStudent() {
+    print("Name: $name");
+    print("Age: $age");
+  }
+}
+
+class CollegeStudent extends Student {
+  String? roll;
+
+  CollegeStudent(String name, String roll, int age) : super(name) {
+    this.roll = roll;
+    print('this is the constructor of the CollegeStudent class');
+  }
+
+  CollegeStudent.named(String name, String roll, int age) : super.withAge(age) {
+    this.roll = roll;
+    // super.name = name; // super use kore parent er property access kora
+    this.name = name; // direct access kore parent er property access kora
+    print('this is the constructor of the CollegeStudent class');
+  }
+
+  void displayStudent() {
+    print("Roll: $roll");
+    print("Name: $name");
+    print("Age: $age");
+  }
+}
+
 void main() {
   // bike -> yamaha , bike -> honda
   // simpleInheritance();
 
   // multilevel inheritance -> person -> engineer -> softwareEngineer
-  multilevelInheritance();
+  // multilevelInheritance();
+
+  // constructor inheritance -> student -> collegeStudent
+  // CollegeStudent student1 = CollegeStudent("Alice", "CS101", 20);
+  // student1.displayStudent();
+
+  // Named constructor use kora
+  CollegeStudent student2 = CollegeStudent.named("Bob", "CS102", 22);
+  student2.displayStudent();
 }
